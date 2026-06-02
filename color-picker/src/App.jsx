@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className = "App" style={{ backgroundColor}}>
-      <h1>Color Picker</h1>
+      <h1>Welcome to Color Picker</h1>
 
       <div className = "color-palette">
         {colors.map((color, index) => (

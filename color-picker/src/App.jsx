@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <div className = "App" style={{ backgroundColor}}>
+    <div className = "App" style={{backgroundColor}}>
       <h1>Welcome to Color Picker</h1>
 
       <div className = "color-palette">

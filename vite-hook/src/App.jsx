@@ -1,49 +1,18 @@
 import './App.css'
 import { useState } from 'react'
+import MultipleCounter from './MultipleCounter';
+import SingleCounter from './SingleCounter';
 
 function App() {
-
-  const [count, setCount] = useState(0);
-  const [counters, setCounters] = useState([{id : 1, value : 0}]);
-
-  const inc = () => {
-    setCount(count + 1);
-  };
-
-  const dec = () => {
-    setCount(count -1);
-  };
-
-  const addCounter = () => {
-    setCounters([...counters, {id : counters.length + 1, value : 0}]);
-  };
-
-  const incCounter = (id) => {
-    setCounters(counters.map (counter =>
-      counter.id === id ? {...counter, value : counter.value + 1} : counter
-    ));
-  };
   
   return (
     <div>
-      <h1>Counter Value : {count}</h1>
-      <button onClick = {inc}>Increment</button>
-      <button onClick = {dec}>Decrement</button>
-
+      
+      <SingleCounter />
       <br />
       -----------------------------------------------
       <br />
-
-      <h1> HELLO PEOPLE</h1>
-      <button onClick = {addCounter}>Add Counter</button>
-      <ul>
-        {
-          counters.map(counter => (
-            <li key = {counter.id}>
-              Counter {counter.id} : {counter.value} <button onClick = {() =>incCounter(counter.id)}>Increment</button>
-            </li>
-        ))}
-      </ul>
+      <MultipleCounter />
     </div>
   );
 }

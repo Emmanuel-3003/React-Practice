@@ -3,33 +3,49 @@ import { useState } from 'react'
 
 function App() {
 
+  const [count, setCount] = useState(0);
   const [counters, setCounters] = useState([{id : 1, value : 0}]);
 
-  const addCounters = () => {
+  const inc = () => {
+    setCount(count + 1);
+  };
+
+  const dec = () => {
+    setCount(count -1);
+  };
+
+  const addCounter = () => {
     setCounters([...counters, {id : counters.length + 1, value : 0}]);
   };
 
   const incCounter = (id) => {
-    setCounters(counters.map(counter => 
-      counter.id === id ? {...counter, value : counter.value + 1} : counter)
-    );
+    setCounters(counters.map (counter =>
+      counter.id === id ? {...counter, value : counter.value + 1} : counter
+    ));
   };
-
+  
   return (
     <div>
-      <h1>Hello</h1>
+      <h1>Counter Value : {count}</h1>
+      <button onClick = {inc}>Increment</button>
+      <button onClick = {dec}>Decrement</button>
 
-      <button onClick = {addCounters}>Add Counters</button>
+      <br />
+      -----------------------------------------------
+      <br />
+
+      <h1> HELLO PEOPLE</h1>
+      <button onClick = {addCounter}>Add Counter</button>
       <ul>
-        {counters.map(counter =>(
-          <li key = {counter.id}>
-            Counter {counter.id} : {counter.value}
-            <button onClick = {() => incCounter(counter.id)}>Increment</button>
-          </li>
+        {
+          counters.map(counter => (
+            <li key = {counter.id}>
+              Counter {counter.id} : {counter.value} <button onClick = {() =>incCounter(counter.id)}>Increment</button>
+            </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default App

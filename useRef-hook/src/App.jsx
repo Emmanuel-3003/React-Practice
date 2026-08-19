@@ -21,6 +21,13 @@ function App() {
     inputRef.current.style.backgroundColor = "yellow";
   };
 
+  const resetFocus = () => {
+    inputRef.current.style.backgroundColor = "white";
+    inputRef.current.value = "";
+  };
+
+
+
   return (
     <div>
       <h1>State Count : {stateCount}</h1>
@@ -31,6 +38,7 @@ function App() {
 
       <input ref = {inputRef} type="text" placeholder='Focus Me' />
       <button onClick = {focusInput}>Focus</button>
+      <button onClick = {resetFocus}>Reset</button>
     </div>
   )
 }

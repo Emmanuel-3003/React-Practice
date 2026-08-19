@@ -23,8 +23,7 @@ function App() {
   return (
     <div className="clock-container">
       <div className ="clock">
-        <h1>Time</h1>
-        <p>{formattedTime}</p>
+        <p>Time : {formattedTime}</p>
       </div>
     </div>
   )

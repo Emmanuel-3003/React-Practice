@@ -1,23 +1,33 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import axios from 'axios'
 
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const url = 'https://jsonplaceholder.typicode.com/posts';
 
   useEffect(() => {
     setLoading(true);
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setData(data);
+    axios(url)
+      .then(response => {
+        setData(response.data);
+        setLoading(false);
+        //throw new Error('An error occurred while fetching data');
+      })
+      .catch(error => {
+        setError(error);
         setLoading(false);
       });
   }, []);
 
   if(loading){
     return <p>Loading...</p>
+  }
+
+  if(error){
+    return <p>Error: {error.message}</p>
   }
 
   return (

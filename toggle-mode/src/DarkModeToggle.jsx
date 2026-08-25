@@ -19,7 +19,7 @@ function DarkModeToggle() {
         <button
             onClick={() => setIsDarkMode(!isDarkMode)}
             className="p-2 rounded bg-gray-200 text-gray-700 dark:bg-gray-900 dark:text-white">
-            Dark Mode
+            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
         </button>
     );
 }

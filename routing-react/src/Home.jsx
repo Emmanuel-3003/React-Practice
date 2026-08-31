@@ -5,6 +5,7 @@ function Home () {
     const navigate = useNavigate();
 
     const handleLogin= () => {
+        //navigate(-1);
         navigate('/dashboard');
     };
 
